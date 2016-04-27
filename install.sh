@@ -3,7 +3,7 @@
 
 CURRENT=`pwd`
 INSTALL_COMPOSER=true
-INSTALL_ZSH=false
+INSTALL_ZSH=true
 INSTALL_TERM=true
 #INSTALL_ANSIBLE=true
 INSTALL_ANSIBLE=false
@@ -107,10 +107,13 @@ if $INSTALL_COMPOSER ; then
 fi
 
 if $INSTALL_ZSH ; then
-    git submodule update --init
-    git submodule foreach git pull origin master
-    echo "\033[0;36m [+] Installation de zsh \033[0m"
-    cd $CURRENT/zsh-config
-    ./install.sh
+    echo -e '\033[0;36m [+] zsh Installation \033[0m'
+    wget --no-check-certificate https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
+    echo ""
+    printf "   \033[0;36m [+] Create symlinks: \033[0m\n"
+    printf "   \033[0;36m [+] .zshr\033[0m\n"
+    ln -sf $CURRENT/zsh-config/.zshr ~/.zshr
+    chsh -s /bin/zsh || chsh -s `which zsh`
+
 fi
 echo -e '\033[0;36m End [!!!] \033[0m'
