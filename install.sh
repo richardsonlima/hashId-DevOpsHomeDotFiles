@@ -104,7 +104,7 @@ if [ $# -gt 0 ] ; then
     done
 fi
 
-PACKAGE=' git-core tig curl php python-pip python-psutil htop glances rdesktop cifs-utils vim tmux gtkterm openssh-server filezilla virtualbox-5.0'
+PACKAGE=' git jq git-core tig curl php python-pip python-psutil htop glances rdesktop cifs-utils vim tmux gtkterm openssh-server filezilla virtualbox-5.0'
 
 if $INSTALL_TERM ; then
    disclaimer
@@ -180,18 +180,28 @@ fi
 if $INSTALL_POWERLINE ; then
     echo -e '\033[0;36m [+] Powerline Installation \033[0m'
     echo ""
-    sudo pip install git+git://github.com/Lokaltog/powerline
-    printf "   \033[0;36m [+] Powerline activation \033[0m\n"
-    powerline-daemon -q
-    . /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh
-    printf "   \033[0;36m [+] Configuring user bashrc \033[0m\n"
-    #cat << EOF >> ~/.bashrc
-    echo "powerline-daemon -q" >>  ~/.bashrc
-    echo "POWERLINE_BASH_CONTINUATION=1" >>  ~/.bashrc
-    echo "POWERLINE_BASH_SELECT=1" >>  ~/.bashrc
-    echo ". /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh" >>  ~/.bashrc
-    .  ~/.bashrc
-    #EOF
+    function add_line() {
+    LINE="$1"
+    FILE=$2
+    grep -F -q "${LINE}" ${FILE} || (echo -e '\n# Powerline shell changes' >> ${FILE} && echo ${LINE} >> ${FILE})
+}
+pip install setuptools
+pip install --user git+git://github.com/powerline/powerline
+
+LINE='if [ -d "$HOME/.local/bin" ] ; then PATH="$HOME/.local/bin:$PATH"; fi'
+add_line "${LINE}" ~/.profile
+
+wget https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
+mkdir -p ~/.fonts/ && mv PowerlineSymbols.otf ~/.fonts/
+fc-cache -vf ~/.fonts
+mkdir -p ~/.config/fontconfig/conf.d/ && mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
+
+LINE='if [ -f ~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh ]; then source ~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh; fi'
+add_line "${LINE}" ~/.bashrc
+
+# Use the "default_leftonly" theme
+CFG_FILE=~/.local/lib/python2.7/site-packages/powerline/config_files/config.json
+jq '(.ext.shell.theme = "default_leftonly")' "${CFG_FILE}" > tmp.$$.json && mv tmp.$$.json ${CFG_FILE}
 
 fi
 
