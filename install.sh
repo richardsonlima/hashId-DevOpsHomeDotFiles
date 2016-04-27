@@ -185,7 +185,7 @@ if $INSTALL_ZSH ; then
     printf "   \033[0;36m [+] Create symlinks: \033[0m\n"
     printf "   \033[0;36m [+] .zshr\033[0m\n"
     ln -sf $CURRENT/zsh-config/.zshr ~/.zshr
-    chsh -s /bin/zsh || chsh -s `which zsh`
+    chsh -s /bin/zsh || chsh -s `which zsh` && /bin/zsh
 
 fi
 
