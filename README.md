@@ -1,11 +1,14 @@
-# hashId DevOps/SysAdmin/SysOps Home DotFiles 
+# hashId DevOps/SysAdmin/SysOps Home DotFiles
 
 Config zsh, git , php
 =========================
 
 Intallation
 -----------
-Just run : `sudo ./install.sh [options]`
+Just run :
+`git clone https://github.com/richardsonlima/hashId-DevOpsHomeDotFiles.git `
+`cd hashId-DevOpsHomeDotFiles/ && chmod +x *.sh`
+`sudo ./install.sh [options]`
 
 Options
 -------
