@@ -51,7 +51,7 @@ echo -e ""
             echo -e "        and baselines.${NORMAL}"
             echo -e ""
             echo -e "        Git Official Repo: https://www.hashidsecscan.com.br/downloads/"
-            echo -e ""
+            echo -e "        *** ATTENTION: This program was tested on Ubuntu 16.04 desktop "
             echo -e "        $copyright "
             echo -e "      ==============================================================================="
             echo -e ""
@@ -89,7 +89,7 @@ if [ $# -gt 0 ] ; then
         elif [ $arg = '--ansible' ] ; then
             INSTALL_ANSIBLE=true
         elif [ $arg = '--help' ] ; then
-            printf "\033[0;32m [+] hashId DevOps/SysAdmin/SysOps Home DotFiles and tools: \033[0m\n\n"
+            printf "\033[0;32m [*] hashIdOpsPerfectDesktop -  DevOps and SysOps Ubuntu perfect desktop tools \033[0m\n\n"
             printf "\033[0;32m [+] Author: Richardson Lima - contato at richardsonlima dot com dot br \033[0m\n\n"
             printf "\033[0;33mUsage:\033[0m\n"
             printf "  ./install.sh [options]\n\n"
