@@ -1,6 +1,6 @@
 # hashId DevOps/SysAdmin/SysOps Home DotFiles
 
-Config zsh, git , php
+Config powerline, git , php, git-core, tig, curl, php, python-pip, python-psutil, htop, glances, rdesktop, cifs-utils, vim, tmux, gtkterm, openssh-server, filezilla, virtualbox-5.0 .
 =========================
 
 Intallation
