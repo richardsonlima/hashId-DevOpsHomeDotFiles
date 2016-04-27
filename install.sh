@@ -136,7 +136,7 @@ fi
 
 printf "\033[0;32m [+] Install packages $PACKAGE\033[0m\n"
 sudo apt-get update
-sudo apt-get install $PACKAGE
+sudo apt-get install $PACKAGE -y 
 echo ""
 printf "\033[0;32mTest files exist ~/.gitconfig ~/.gitignore_global ~/.config/fontconfig\033[0m\n"
 if [ -f ~/.gitconfig ] ; then
