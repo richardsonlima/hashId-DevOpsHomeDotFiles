@@ -185,8 +185,11 @@ if $INSTALL_POWERLINE ; then
     FILE=$2
     grep -F -q "${LINE}" ${FILE} || (echo -e '\n# Powerline shell changes' >> ${FILE} && echo ${LINE} >> ${FILE})
 }
+
 sudo pip install setuptools
-sudo pip install --user git+git://github.com/powerline/powerline
+sudo pip install powerline-status
+#sudo pip install https://github.com/powerline/powerline
+#sudo pip install --user git+git://github.com/powerline/powerline
 
 LINE='if [ -d "$HOME/.local/bin" ] ; then PATH="$HOME/.local/bin:$PATH"; fi'
 add_line "${LINE}" ~/.profile
@@ -202,7 +205,7 @@ add_line "${LINE}" ~/.bashrc
 # Use the "default_leftonly" theme
 CFG_FILE=~/.local/lib/python2.7/site-packages/powerline/config_files/config.json
 jq '(.ext.shell.theme = "default_leftonly")' "${CFG_FILE}" > tmp.$$.json && mv tmp.$$.json ${CFG_FILE}
-
+sudo pip show powerline-status
 fi
 
 echo -e '\033[0;36m [+] End [!!!] \033[0m'
