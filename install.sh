@@ -92,7 +92,7 @@ if [ $# -gt 0 ] ; then
             printf "\033[0;32m [+] hashId DevOps/SysAdmin/SysOps Home DotFiles and tools: \033[0m\n\n"
             printf "\033[0;32m [+] Author: Richardson Lima - contato at richardsonlima dot com dot br \033[0m\n\n"
             printf "\033[0;33mUsage:\033[0m\n"
-            printf "  ./install.h [options]\n\n"
+            printf "  ./install.sh [options]\n\n"
             printf "\033[0;33mOptions:\033[0m\n"
             printf "  \033[0;32m--no-zsh\033[0m\t\tDon't install zsh\n"
             printf "  \033[0;32m--no-composer\033[0m\t\tDon't install composer\n"
