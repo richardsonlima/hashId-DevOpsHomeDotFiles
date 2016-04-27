@@ -35,7 +35,7 @@ if [ $# -gt 0 ] ; then
     done
 fi
 
-PACKAGE='git-core tig curl php python-pip python-psutil htop glances rdesktop cifs-utils vim tmux gtkterm openssh-server filezilla virtualbox-5.0'
+PACKAGE=' git-core tig curl php python-pip python-psutil htop glances rdesktop cifs-utils vim tmux gtkterm openssh-server filezilla virtualbox-5.0'
 
 if $INSTALL_TERM ; then
     if [ -f ~/.config/terminator/config ] ; then
@@ -63,6 +63,17 @@ if $INSTALL_ANSIBLE ; then
     PACKAGE="$PACKAGE ansible"
 fi
 
+if $INSTALL_ZSH ; then
+    PACKAGE="$PACKAGE zsh"
+    echo -e '\033[0;36m [+] zsh Installation \033[0m'
+    sh $CURRENT/zsh-config/zsh-install.sh
+    echo ""
+    printf "   \033[0;36m [+] Create symlinks: \033[0m\n"
+    printf "   \033[0;36m [+] .zshr\033[0m\n"
+    ln -sf $CURRENT/zsh-config/.zshr ~/.zshr
+    chsh -s /bin/zsh || chsh -s `which zsh`
+
+fi
 printf "\033[0;32m [+] Install package$PACKAGE\033[0m\n"
 sudo apt-get update
 sudo apt-get install $PACKAGE
@@ -104,17 +115,5 @@ echo ""
 if $INSTALL_COMPOSER ; then
     echo -e '\033[0;36m [+] Installation de composer  \033[0m'
     chmod +x $CURRENT/lib/composer.sh && sudo $CURRENT/lib/composer.sh
-fi
-
-if $INSTALL_ZSH ; then
-    PACKAGE="$PACKAGE zsh"
-    echo -e '\033[0;36m [+] zsh Installation \033[0m'
-    sh $CURRENT/zsh-config/zsh-install.sh
-    echo ""
-    printf "   \033[0;36m [+] Create symlinks: \033[0m\n"
-    printf "   \033[0;36m [+] .zshr\033[0m\n"
-    ln -sf $CURRENT/zsh-config/.zshr ~/.zshr
-    chsh -s /bin/zsh || chsh -s `which zsh`
-
 fi
 echo -e '\033[0;36m End [!!!] \033[0m'
