@@ -107,8 +107,9 @@ if $INSTALL_COMPOSER ; then
 fi
 
 if $INSTALL_ZSH ; then
+    PACKAGE="$PACKAGE zsh"
     echo -e '\033[0;36m [+] zsh Installation \033[0m'
-    wget --no-check-certificate https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
+    sh $CURRENT/zsh-config/zsh-install.sh
     echo ""
     printf "   \033[0;36m [+] Create symlinks: \033[0m\n"
     printf "   \033[0;36m [+] .zshr\033[0m\n"
