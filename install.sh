@@ -20,7 +20,7 @@ if [ $# -gt 0 ] ; then
         elif [ $arg = '--ansible' ] ; then
             INSTALL_ANSIBLE=true
         elif [ $arg = '--help' ] ; then
-            printf "\033[0;32m [+] hashId DevOps/SysAdmin/SysOps Home DotFiles: \033[0m\n\n"
+            printf "\033[0;32m [+] hashId DevOps/SysAdmin/SysOps Home DotFiles and tools: \033[0m\n\n"
             printf "\033[0;32m [+] Author: Richardson Lima - contato at richardsonlima dot com dot br \033[0m\n\n"
             printf "\033[0;33mUsage:\033[0m\n"
             printf "  ./install.h [options]\n\n"
