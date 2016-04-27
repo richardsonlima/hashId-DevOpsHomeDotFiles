@@ -104,7 +104,7 @@ if [ $# -gt 0 ] ; then
     done
 fi
 
-PACKAGE='git jq git-core tig curl php python-pip python-psutil htop glances rdesktop cifs-utils vim tmux gtkterm openssh-server filezilla'
+PACKAGE='poweline git jq git-core tig curl php python-pip python-psutil htop glances rdesktop cifs-utils vim tmux gtkterm openssh-server filezilla'
 
 if $INSTALL_TERM ; then
    disclaimer
@@ -185,8 +185,8 @@ if $INSTALL_POWERLINE ; then
     FILE=$2
     grep -F -q "${LINE}" ${FILE} || (echo -e '\n# Powerline shell changes' >> ${FILE} && echo ${LINE} >> ${FILE})
 }
-pip install setuptools
-pip install --user git+git://github.com/powerline/powerline
+sudo pip install setuptools
+sudo pip install --user git+git://github.com/powerline/powerline
 
 LINE='if [ -d "$HOME/.local/bin" ] ; then PATH="$HOME/.local/bin:$PATH"; fi'
 add_line "${LINE}" ~/.profile
