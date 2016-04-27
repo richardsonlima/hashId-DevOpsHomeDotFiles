@@ -188,7 +188,7 @@ if $INSTALL_POWERLINE ; then
 
 sudo pip install setuptools
 sudo pip install powerline-status
-#sudo pip install https://github.com/powerline/powerline
+sudo pip install https://github.com/powerline/powerline
 #sudo pip install --user git+git://github.com/powerline/powerline
 
 LINE='if [ -d "$HOME/.local/bin" ] ; then PATH="$HOME/.local/bin:$PATH"; fi'
