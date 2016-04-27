@@ -104,7 +104,7 @@ if [ $# -gt 0 ] ; then
     done
 fi
 
-PACKAGE=' git jq git-core tig curl php python-pip python-psutil htop glances rdesktop cifs-utils vim tmux gtkterm openssh-server filezilla virtualbox-5.0'
+PACKAGE='git jq git-core tig curl php python-pip python-psutil htop glances rdesktop cifs-utils vim tmux gtkterm openssh-server filezilla virtualbox-5.0'
 
 if $INSTALL_TERM ; then
    disclaimer
@@ -136,7 +136,7 @@ fi
 
 printf "\033[0;32m [+] Install packages $PACKAGE\033[0m\n"
 sudo apt-get update
-sudo apt-get install $PACKAGE -y 
+sudo apt-get install $PACKAGE -y
 echo ""
 printf "\033[0;32mTest files exist ~/.gitconfig ~/.gitignore_global ~/.config/fontconfig\033[0m\n"
 if [ -f ~/.gitconfig ] ; then
