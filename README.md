@@ -1,4 +1,4 @@
-# hashId-DevOpsHomeDotFiles
+# hashId DevOps/SysAdmin/SysOps Home DotFiles 
 
 Config zsh, git , php
 =========================
