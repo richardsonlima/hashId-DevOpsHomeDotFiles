@@ -134,7 +134,7 @@ if $INSTALL_ANSIBLE ; then
     PACKAGE="$PACKAGE ansible"
 fi
 
-printf "\033[0;32m [+] Install package$PACKAGE\033[0m\n"
+printf "\033[0;32m [+] Install packages $PACKAGE\033[0m\n"
 sudo apt-get update
 sudo apt-get install $PACKAGE
 echo ""
@@ -185,12 +185,12 @@ if $INSTALL_POWERLINE ; then
     powerline-daemon -q
     . /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh
     printf "   \033[0;36m [+] Configuring user bashrc \033[0m\n"
-    cat << EOF >> ~/.bashrc
-    powerline-daemon -q
-    POWERLINE_BASH_CONTINUATION=1
-    POWERLINE_BASH_SELECT=1
-    . /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh
-    EOF
+    #cat << EOF >> ~/.bashrc
+    echo "powerline-daemon -q" >>  ~/.bashrc
+    echo "POWERLINE_BASH_CONTINUATION=1" >>  ~/.bashrc
+    echo "POWERLINE_BASH_SELECT=1" >>  ~/.bashrc
+    echo ". /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh" >>  ~/.bashrc
+    #EOF
 
 fi
 
