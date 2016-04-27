@@ -35,7 +35,7 @@ if [ $# -gt 0 ] ; then
     done
 fi
 
-PACKAGE='git git-core tig curl php python-pip python-psutil htop glances rdesktop cifs-utils vim tmux gtkterm openssh-server filezilla virtualbox-5.0'
+PACKAGE='git-core tig curl php python-pip python-psutil htop glances rdesktop cifs-utils vim tmux gtkterm openssh-server filezilla virtualbox-5.0'
 
 if $INSTALL_TERM ; then
     if [ -f ~/.config/terminator/config ] ; then

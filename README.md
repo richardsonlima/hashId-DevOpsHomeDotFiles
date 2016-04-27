@@ -6,9 +6,10 @@ Config zsh, git , php
 Intallation
 -----------
 Just run :
+* `sudo apt-get install git`
 * `git clone https://github.com/richardsonlima/hashId-DevOpsHomeDotFiles.git `
 * `cd hashId-DevOpsHomeDotFiles/ && chmod +x *.sh`
-* `sudo ./install.sh [options]`
+* `sudo ./install.sh --help`
 
 Options
 -------
