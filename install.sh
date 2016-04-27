@@ -1,5 +1,73 @@
-#!/usr/bin/env bash
+#!/bin/bash
+
+# Program information
+name="hashId-DevOpsHomeDotFile"
+version="1.0.1"
+releasedate="27 Abr 2016"
+author="by Richardson Lima"
+author_contact="contato@richardsonlima.com.br"
+website="http://www.richardsonlima.com.br"
+copyright="Copyright 2016 - ${author}, ${website}"
+
 # set -x
+
+# Initialize defaults
+# Variable initializing
+    PROGRAM_name=" hashId-DevOpsHomeDotFile"
+    PROGRAM_CV="v1.0.0"
+    PROGRAM_LV="v1.0.1"
+    PROFILE=""
+##
+# Colors
+
+    NORMAL="\033[1;39m"
+    WARNING="\033[1;31m"          # Bad (red)
+    TITLE="\033[0;34m"            # Information (blue)
+    NOTICE="\033[1;33m"           # Notice (yellow)
+    OK="\033[1;32m"               # Ok (green)
+    BAD="\033[1;31m"              # Bad (red)
+
+    # Normal color names
+    YELLOW="\033[1;33m"
+    WHITE="\033[1;37m"
+    GREEN="\033[1;32m"
+    RED="\033[1;31m"
+    PURPLE="\033[0;35m"
+    MAGENTA="\033[1;35m"
+    BROWN="\033[0;33m"
+    CYAN="\033[0;36m"
+    BLUE="\033[0;34m"
+#
+
+echo -e ""
+            echo -e "      ==============================================================================="
+            echo -e "        ${NOTICE} ${PROGRAM_name} ${NORMAL}"
+            echo -e "      ==============================================================================="
+            echo -e ""
+            echo -e "        Current version : ${YELLOW}${PROGRAM_CV}${NORMAL}   Latest version : ${GREEN}${PROGRAM_LV}${NORMAL}"
+            echo -e ""
+            echo -e "        ${WHITE}Please update to the latest version for new features, bug fixes, tests"
+            echo -e "        and baselines.${NORMAL}"
+            echo -e ""
+            echo -e "        Git Official Repo: https://www.hashidsecscan.com.br/downloads/"
+            echo -e ""
+            echo -e "        $copyright "
+            echo -e "      ==============================================================================="
+            echo -e ""
+            sleep 5
+##
+    echo
+    echo -e "\033[1;34m [*] System Information \033[m";
+    echo -e "\033[1;32m [+] Operation System: \033[m" $(python -c 'import platform; print platform.system()' )
+    echo -e "\033[1;32m [+] Hostname: \033[m" $(python -c 'import socket; print socket.gethostname()' )
+    echo -e "\033[1;32m [+] Distro: \033[m" $(python -c 'import platform; print platform.dist()' )
+    echo -e "\033[1;32m [+] Version/Kernel: \033[m" $(python -c 'import platform; print platform.release()' )
+    echo -e "\033[1;32m [+] Arch: \033[m" $(python -c 'import platform; print platform.machine()' )
+    #echo -e "\033[1;32m [+] Server ID: \033[m"; sudo dmidecode -s system-uuid
+    echo -e "\033[1;32m [+] UUID: \033[m" $(python -c 'import os; os.system("sudo dmidecode -s system-uuid")')
+    echo
+##
+
 
 CURRENT=`pwd`
 INSTALL_COMPOSER=true
@@ -35,7 +103,7 @@ if [ $# -gt 0 ] ; then
     done
 fi
 
-PACKAGE=' git-core tig curl php python-pip python-psutil htop glances rdesktop cifs-utils vim tmux gtkterm openssh-server filezilla virtualbox-5.0'
+PACKAGE=' zsh git-core tig curl php python-pip python-psutil htop glances rdesktop cifs-utils vim tmux gtkterm openssh-server filezilla virtualbox-5.0'
 
 if $INSTALL_TERM ; then
     if [ -f ~/.config/terminator/config ] ; then
@@ -63,17 +131,6 @@ if $INSTALL_ANSIBLE ; then
     PACKAGE="$PACKAGE ansible"
 fi
 
-if $INSTALL_ZSH ; then
-    PACKAGE="$PACKAGE zsh"
-    echo -e '\033[0;36m [+] zsh Installation \033[0m'
-    sh $CURRENT/zsh-config/zsh-install.sh
-    echo ""
-    printf "   \033[0;36m [+] Create symlinks: \033[0m\n"
-    printf "   \033[0;36m [+] .zshr\033[0m\n"
-    ln -sf $CURRENT/zsh-config/.zshr ~/.zshr
-    chsh -s /bin/zsh || chsh -s `which zsh`
-
-fi
 printf "\033[0;32m [+] Install package$PACKAGE\033[0m\n"
 sudo apt-get update
 sudo apt-get install $PACKAGE
@@ -116,4 +173,18 @@ if $INSTALL_COMPOSER ; then
     echo -e '\033[0;36m [+] Installation de composer  \033[0m'
     chmod +x $CURRENT/lib/composer.sh && sudo $CURRENT/lib/composer.sh
 fi
-echo -e '\033[0;36m End [!!!] \033[0m'
+
+if $INSTALL_ZSH ; then
+    #PACKAGE="$PACKAGE zsh"
+    echo -e '\033[0;36m [+] zsh Installation \033[0m'
+    sh $CURRENT/zsh-config/zsh-install.sh
+    echo ""
+    printf "   \033[0;36m [+] Create symlinks: \033[0m\n"
+    printf "   \033[0;36m [+] .zshr\033[0m\n"
+    ln -sf $CURRENT/zsh-config/.zshr ~/.zshr
+    chsh -s /bin/zsh || chsh -s `which zsh`
+
+fi
+
+echo -e '\033[0;36m [+] End [!!!] \033[0m'
+ 
