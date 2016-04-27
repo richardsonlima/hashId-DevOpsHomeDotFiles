@@ -104,7 +104,7 @@ if [ $# -gt 0 ] ; then
     done
 fi
 
-PACKAGE='git jq git-core tig curl php python-pip python-psutil htop glances rdesktop cifs-utils vim tmux gtkterm openssh-server filezilla virtualbox-5.0'
+PACKAGE='git jq git-core tig curl php python-pip python-psutil htop glances rdesktop cifs-utils vim tmux gtkterm openssh-server filezilla'
 
 if $INSTALL_TERM ; then
    disclaimer
