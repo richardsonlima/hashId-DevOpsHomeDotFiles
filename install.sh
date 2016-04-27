@@ -39,6 +39,7 @@ copyright="Copyright 2016 - ${author}, ${website}"
     BLUE="\033[0;34m"
 #
 
+disclaimer(){
 echo -e ""
             echo -e "      ==============================================================================="
             echo -e "        ${NOTICE} ${PROGRAM_name} ${NORMAL}"
@@ -57,17 +58,17 @@ echo -e ""
             sleep 5
 ##
     echo
-    echo -e "\033[1;34m [*] System Information \033[m";
-    echo -e "\033[1;32m [+] Operation System: \033[m" $(python -c 'import platform; print platform.system()' )
-    echo -e "\033[1;32m [+] Hostname: \033[m" $(python -c 'import socket; print socket.gethostname()' )
-    echo -e "\033[1;32m [+] Distro: \033[m" $(python -c 'import platform; print platform.dist()' )
-    echo -e "\033[1;32m [+] Version/Kernel: \033[m" $(python -c 'import platform; print platform.release()' )
-    echo -e "\033[1;32m [+] Arch: \033[m" $(python -c 'import platform; print platform.machine()' )
+    echo -e "\033[0;36m [*] System Information \033[m";
+    echo -e "\033[0;36m [+] Operation System: \033[m" $(python -c 'import platform; print platform.system()' )
+    echo -e "\033[0;36m [+] Hostname: \033[m" $(python -c 'import socket; print socket.gethostname()' )
+    echo -e "\033[0;36m [+] Distro: \033[m" $(python -c 'import platform; print platform.dist()' )
+    echo -e "\033[0;36m [+] Version/Kernel: \033[m" $(python -c 'import platform; print platform.release()' )
+    echo -e "\033[0;36m [+] Arch: \033[m" $(python -c 'import platform; print platform.machine()' )
     #echo -e "\033[1;32m [+] Server ID: \033[m"; sudo dmidecode -s system-uuid
-    echo -e "\033[1;32m [+] UUID: \033[m" $(python -c 'import os; os.system("sudo dmidecode -s system-uuid")')
+    echo -e "\033[0;36m [+] UUID: \033[m" $(python -c 'import os; os.system("sudo dmidecode -s system-uuid")')
     echo
 ##
-
+}
 
 CURRENT=`pwd`
 INSTALL_COMPOSER=true
@@ -106,6 +107,7 @@ fi
 PACKAGE=' zsh git-core tig curl php python-pip python-psutil htop glances rdesktop cifs-utils vim tmux gtkterm openssh-server filezilla virtualbox-5.0'
 
 if $INSTALL_TERM ; then
+   disclaimer
     if [ -f ~/.config/terminator/config ] ; then
         cat ~/.config/terminator/config > ~/.config/terminator/config.backup
         rm -rf ~/.config/terminator
@@ -118,6 +120,7 @@ if $INSTALL_TERM ; then
 fi
 
 if $INSTALL_ANSIBLE ; then
+   disclaimer
     if [ -f ~/.ansible.cfg ] ; then
         cat ~/.ansible.cfg > ~/ansible.cfg.backup
         rm -f ~/.ansible.cfg
@@ -186,5 +189,4 @@ if $INSTALL_ZSH ; then
 
 fi
 
-echo -e '\033[0;36m [+] End [!!!] \033[0m'
- 
+echo -e '\033[0;36m [+] End [!!!] \033[0m' 
