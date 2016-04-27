@@ -190,6 +190,7 @@ if $INSTALL_POWERLINE ; then
     echo "POWERLINE_BASH_CONTINUATION=1" >>  ~/.bashrc
     echo "POWERLINE_BASH_SELECT=1" >>  ~/.bashrc
     echo ". /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh" >>  ~/.bashrc
+    .  ~/.bashrc
     #EOF
 
 fi
