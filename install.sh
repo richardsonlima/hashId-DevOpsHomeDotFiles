@@ -72,7 +72,7 @@ echo -e ""
 
 CURRENT=`pwd`
 INSTALL_COMPOSER=true
-INSTALL_ZSH=true
+INSTALL_POWERLINE=true
 INSTALL_TERM=true
 #INSTALL_ANSIBLE=true
 INSTALL_ANSIBLE=false
@@ -80,8 +80,8 @@ INSTALL_ANSIBLE=false
 # Parsing options
 if [ $# -gt 0 ] ; then
     for arg in $@ ; do
-        if [ $arg = '--no-zsh' ] ; then
-            INSTALL_ZSH=false
+        if [ $arg = '--no-powerline' ] ; then
+            INSTALL_POWERLINE=false
         elif [ $arg = '--no-composer' ] ; then
             INSTALL_COMPOSER=false
         elif [ $arg = '--no-term' ] ; then
@@ -94,7 +94,7 @@ if [ $# -gt 0 ] ; then
             printf "\033[0;33mUsage:\033[0m\n"
             printf "  ./install.sh [options]\n\n"
             printf "\033[0;33mOptions:\033[0m\n"
-            printf "  \033[0;32m--no-zsh\033[0m\t\tDon't install zsh\n"
+            printf "  \033[0;32m--no-powerline\033[0m\t\tDon't install powerline\n"
             printf "  \033[0;32m--no-composer\033[0m\t\tDon't install composer\n"
             printf "  \033[0;32m--no-term\033[0m\t\tDon't install term terminator\n"
             printf "  \033[0;32m--ansible\033[0m\t\tInstall ansible and a configuration\n"
@@ -104,7 +104,7 @@ if [ $# -gt 0 ] ; then
     done
 fi
 
-PACKAGE=' zsh git-core tig curl php python-pip python-psutil htop glances rdesktop cifs-utils vim tmux gtkterm openssh-server filezilla virtualbox-5.0'
+PACKAGE=' git-core tig curl php python-pip python-psutil htop glances rdesktop cifs-utils vim tmux gtkterm openssh-server filezilla virtualbox-5.0'
 
 if $INSTALL_TERM ; then
    disclaimer
@@ -177,16 +177,21 @@ if $INSTALL_COMPOSER ; then
     chmod +x $CURRENT/lib/composer.sh && sudo $CURRENT/lib/composer.sh
 fi
 
-if $INSTALL_ZSH ; then
-    #PACKAGE="$PACKAGE zsh"
-    echo -e '\033[0;36m [+] zsh Installation \033[0m'
-    sh $CURRENT/zsh-config/zsh-install.sh
+if $INSTALL_POWERLINE ; then
+    echo -e '\033[0;36m [+] Powerline Installation \033[0m'
     echo ""
-    printf "   \033[0;36m [+] Create symlinks: \033[0m\n"
-    printf "   \033[0;36m [+] .zshr\033[0m\n"
-    ln -sf $CURRENT/zsh-config/.zshr ~/.zshr
-    chsh -s /bin/zsh || chsh -s `which zsh` && /bin/zsh
+    sudo pip install git+git://github.com/Lokaltog/powerline
+    printf "   \033[0;36m [+] Powerline activation \033[0m\n"
+    powerline-daemon -q
+    . /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh
+    printf "   \033[0;36m [+] Configuring user bashrc \033[0m\n"
+    cat << EOF >> ~/.bashrc
+    powerline-daemon -q
+    POWERLINE_BASH_CONTINUATION=1
+    POWERLINE_BASH_SELECT=1
+    . /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh
+    EOF
 
 fi
 
-echo -e '\033[0;36m [+] End [!!!] \033[0m' 
+echo -e '\033[0;36m [+] End [!!!] \033[0m'
