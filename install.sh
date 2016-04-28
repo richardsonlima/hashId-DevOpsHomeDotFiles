@@ -256,6 +256,7 @@ if $INSTALL_ATOM ; then
     nvm ls
     nvm alias default 0.11.13
     nvm use default
+    reset
     echo
     sleep 3 
 
