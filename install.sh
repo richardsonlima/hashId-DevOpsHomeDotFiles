@@ -103,7 +103,7 @@ if [ $# -gt 0 ] ; then
     done
 fi
 
-PACKAGE='build-essential poweline git jq git-core tig curl php python-pip python-psutil htop glances rdesktop cifs-utils vim tmux gtkterm openssh-server filezilla'
+PACKAGE='build-essential poweline git jq git-core tig curl php python-pip python-psutil htop glances rdesktop cifs-utils vim tmux gtkterm openssh-server filezilla vim-nox-py2'
 
 if $INSTALL_TERM ; then
    disclaimer
