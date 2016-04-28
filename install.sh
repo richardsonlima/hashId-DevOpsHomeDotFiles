@@ -94,10 +94,10 @@ if [ $# -gt 0 ] ; then
             printf "  ./install.sh [options]\n\n"
             printf "\033[0;33mOptions:\033[0m\n"
             printf "  \033[0;32m--no-powerline\033[0m\t\tDon't install powerline\n"
-            printf "  \033[0;32m--no-term\033[0m\t\tDon't install term terminator\n"
-            printf "  \033[0;32m--no-atom\033[0m\t\tDon't install atom - The hackable text editor\n"
-            printf "  \033[0;32m--ansible\033[0m\t\tInstall ansible and a configuration\n"
-            printf "  \033[0;32m--help\033[0m\t\tDisplay this help message\n"
+            printf "  \033[0;32m--no-term     \033[0m\t\tDon't install term terminator\n"
+            printf "  \033[0;32m--no-atom     \033[0m\t\tDon't install atom - The hackable text editor\n"
+            printf "  \033[0;32m--ansible     \033[0m\t\tInstall ansible and a configuration\n"
+            printf "  \033[0;32m--help        \033[0m\t\tDisplay this help message\n"
             exit 0;
         fi
     done
