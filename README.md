@@ -1,6 +1,6 @@
-# hashId DevOps/SysAdmin/SysOps Home DotFiles
+# hashIdOpsPerfectDesktop - DevOps and SysOps Ubuntu perfect desktop tools
 
-Config powerline, git , php, git-core, tig, curl, php, python-pip, python-psutil, htop, glances, rdesktop, cifs-utils, vim, tmux, gtkterm, openssh-server, filezilla .
+Config atom, powerline, vim powerline, git , php, git-core, tig, curl, php, python-pip, python-psutil, htop, glances, rdesktop, cifs-utils, vim, tmux, gtkterm, openssh-server, filezilla .
 
 Intallation
 -----------
@@ -16,6 +16,6 @@ Options
 Possibility not to install some component of the script thanks to options follows:
 
 * `--no-zsh`: not install zsh.
-* `--no-composer`: not install composer.
 * `--no-term`: not install term terminator.
+* `--no-atom`: not install atom - The hackable text editor
 * `--help`: Display this help message.
