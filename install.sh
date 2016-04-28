@@ -13,7 +13,7 @@ copyright="Copyright 2016 - ${author}, ${website}"
 
 # Initialize defaults
 # Variable initializing
-    PROGRAM_name=" hashId-DevOpsHomeDotFile"
+    PROGRAM_name="hashIdOpsPerfectDesktop -  DevOps and SysOps Ubuntu perfect desktop tools"
     PROGRAM_CV="v1.0.0"
     PROGRAM_LV="v1.0.1"
     PROFILE=""
