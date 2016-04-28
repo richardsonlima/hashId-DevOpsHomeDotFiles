@@ -245,7 +245,7 @@ if $INSTALL_ATOM ; then
     echo -e '\033[0;36m [+] Installing Nodejs \033[0m'
     sudo apt-get install libgnome-keyring-dev fakeroot -y
     curl -sL https://deb.nodesource.com/setup | sudo bash -
-    sudo apt-get install -y nodejs
+    sudo apt-get install -y nodejs nodejs-legacy nodejs-dev
     sudo apt-get install -y npm
     curl https://raw.githubusercontent.com/creationix/nvm/v0.16.1/install.sh | sh
     . ~/.profile
