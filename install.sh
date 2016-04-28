@@ -256,6 +256,10 @@ if $INSTALL_ATOM ; then
     nvm ls
     nvm alias default 0.11.13
     nvm use default
+    echo
+    echo -e '\033[0;36m [+] Resetting terminal to load node and nvm ...\033[0m'
+    echo 
+    sleep 3
     reset
     echo
     sleep 3 
