@@ -1,6 +1,6 @@
 # DevOps and SysOps Ubuntu perfect desktop tools
 
-Easy way to auto install build-essential libssl-dev powerline git jq git-core tig curl php php-cli python-pip python-psutil htop glances rdesktop cifs-utils vim tmux gtkterm openssh-server filezilla vim-nox-py2 mysql-utilities python-chef fabric capistrano python-winrm vim-syntax-docker python-docker docker.io ctop cadvisor docker-compose . 
+Easy way to auto install vagrant build-essential libssl-dev powerline git jq git-core tig curl php php-cli python-pip python-psutil htop glances rdesktop cifs-utils vim tmux gtkterm openssh-server filezilla vim-nox-py2 mysql-utilities python-chef fabric capistrano python-winrm vim-syntax-docker python-docker docker.io ctop cadvisor docker-compose . 
 
 Intallation
 -----------
