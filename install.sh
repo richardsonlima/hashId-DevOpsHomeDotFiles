@@ -84,7 +84,7 @@ if [ $# -gt 0 ] ; then
         elif [ $arg = '--no-term' ] ; then
             INSTALL_TERM=false
         elif [ $arg = '--no-atom' ] ; then
-            INSTALL_TERM=false
+            INSTALL_ATOM=false
         elif [ $arg = '--ansible' ] ; then
             INSTALL_ANSIBLE=true
         elif [ $arg = '--help' ] ; then
