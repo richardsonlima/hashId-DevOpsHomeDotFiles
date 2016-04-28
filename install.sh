@@ -103,7 +103,7 @@ if [ $# -gt 0 ] ; then
     done
 fi
 
-PACKAGE='build-essential poweline git jq git-core tig curl php python-pip python-psutil htop glances rdesktop cifs-utils vim tmux gtkterm openssh-server filezilla vim-nox-py2'
+PACKAGE='build-essential libssl-dev powerline git jq git-core tig curl php php-cli python-pip python-psutil htop glances rdesktop cifs-utils vim tmux gtkterm openssh-server filezilla vim-nox-py2 mysql-utilities python-chef fabric capistrano python-winrm vim-syntax-docker python-docker docker.io ctop cadvisor docker-compose'
 
 if $INSTALL_TERM ; then
    disclaimer
@@ -246,6 +246,16 @@ if $INSTALL_ATOM ; then
     sudo apt-get install libgnome-keyring-dev fakeroot -y
     curl -sL https://deb.nodesource.com/setup | sudo bash -
     sudo apt-get install -y nodejs
+    sudo apt-get install -y npm
+    curl https://raw.githubusercontent.com/creationix/nvm/v0.16.1/install.sh | sh
+    . ~/.profile
+    nvm ls-remote
+    nvm install 0.11.13
+    nvm use 0.11.13
+    node -v
+    nvm ls
+    nvm alias default 0.11.13
+    nvm use default
     echo
     sleep 3 
 
