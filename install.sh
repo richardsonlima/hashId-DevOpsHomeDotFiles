@@ -50,7 +50,7 @@ echo
             echo -e "        ${WHITE}Please update to the latest version for new features, bug fixes, tests"
             echo -e "        and baselines.${NORMAL}"
             echo -e ""
-            echo -e "        Git Official Repo: https://www.hashidsecscan.com.br/downloads/"
+            echo -e "        Git Official Repo: https://github.com/richardsonlima/hashId-DevOpsHomeDotFiles.git"
             echo -e "        *** ATTENTION: This program was tested on Ubuntu 16.04 desktop "
             echo -e "        $copyright "
             echo -e "      ==============================================================================="
