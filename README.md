@@ -5,7 +5,7 @@ Easy way to auto install vagrant build-essential libssl-dev powerline git jq git
 
 ## TODO
 -----------
-- [x] Create a Terminator isntall;
+- [x] Create a Terminator install;
 - [x] Create a Zsh install;
 - [x] Create a Atom install;
 - [ ] Create a Vagrant install;
