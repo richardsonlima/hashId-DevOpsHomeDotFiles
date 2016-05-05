@@ -1,4 +1,5 @@
 # DevOps and SysOps Ubuntu perfect desktop tools
+-----------
 
 Easy way to auto install vagrant build-essential libssl-dev powerline git jq git-core tig curl php php-cli python-pip python-psutil htop glances rdesktop cifs-utils vim tmux gtkterm openssh-server filezilla vim-nox-py2 mysql-utilities python-chef fabric capistrano python-winrm vim-syntax-docker python-docker docker.io ctop cadvisor docker-compose . 
 
@@ -17,7 +18,7 @@ Just run :
 * `cd hashId-DevOpsHomeDotFiles/ && chmod +x *.sh`
 * `sudo ./install.sh --help`
 
-3# Options
+## Options
 -------
 
 Possibility not to install some component of the script thanks to options follows:
