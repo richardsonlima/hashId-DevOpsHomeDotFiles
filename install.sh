@@ -232,7 +232,7 @@ if $INSTALL_POWERLINE ; then
     echo "set laststatus=2" >> ~/.vimrc
     echo "set t_Co=256" >> ~/.vimrc
     .  ~/.vimrc
-    curl http://j.mp/spf13-vim3 -L -o - | sh
+    curl http://j.mp/spf13-vim3 -L -o - | sh && reset
     echo
     sleep 3 
 
